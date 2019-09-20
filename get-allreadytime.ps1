@@ -1,3 +1,6 @@
+$stat = 'cpu.ready.summation'
+$entity =  Get-VM
+
 Get-Stat -realtime -maxsamples 1 -Entity $entity -Stat $stat -ErrorAction SilentlyContinue | Group-Object -Property {$_.Entity.Name} | %{
   $_.Group | %{
     New-Object PSObject -Property @{
